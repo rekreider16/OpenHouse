@@ -59,9 +59,7 @@ namespace OpenHouse
             Room upstairsBthRm = new Room() { Name = "Upstairs Bathroom", HasBeenChecked = false };
             TheHouse.Add(upstairsBthRm);
 
-
-
-
+            //Beginning of Open House
             Console.WriteLine("Open House! \n123 Main Street \nSaturday September 29, 2065 \n ");
             Console.WriteLine("Would you like to attend?");
 
