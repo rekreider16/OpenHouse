@@ -6,6 +6,7 @@ namespace OpenHouse
 {
     class Program
     {
+
         public static List<Room> TheHouse = new List<Room>();
 
         static void SpeakingDelay()
@@ -31,6 +32,8 @@ namespace OpenHouse
         }
         static void Main(string[] args)
         {
+
+
             Room masterBedRm = new Room() { Name = "Master Bedroom", HasBeenChecked = false };
             TheHouse.Add(masterBedRm);
             //masterBedRm.HasBeenChecked = true; <= this sets the room to be checked.
@@ -110,6 +113,8 @@ namespace OpenHouse
                 switch (userResponse)
                 {
                     case "1":
+                        //added background color change so white text becomes visible
+                        Console.BackgroundColor = ConsoleColor.Black;
                         Console.Clear();
                         Console.WriteLine("This is the " + masterBedRm.Name);
                         Console.WriteLine("Here we have a king size bed with space for two small end tables to\neither side.");
@@ -122,6 +127,7 @@ namespace OpenHouse
                         masterBedRm.HasBeenChecked = true;
                         break;
                     case "2":
+                        Console.BackgroundColor = ConsoleColor.Black;
                         Console.Clear();
                         Console.WriteLine("This is the " + livingRoom.Name);
                         Console.WriteLine("Here we have a large floor space with hardwood floors that were done as a recent remodel.");
