@@ -44,8 +44,8 @@ namespace OpenHouse
             Room diningRoom = new Room() { Name = "Dining Room", HasBeenChecked = false };
             TheHouse.Add(diningRoom);
 
-            Room basement = new Room() { Name = "Basement", HasBeenChecked = false };
-            TheHouse.Add(basement);
+            Room hallway = new Room() { Name = "Hallway", HasBeenChecked = false };
+            TheHouse.Add(hallway);
 
             Room upstairsBedrooms = new Room() { Name = "Upstairs Bedrooms", HasBeenChecked = false };
             TheHouse.Add(upstairsBedrooms);
@@ -111,7 +111,7 @@ namespace OpenHouse
                 {
                     case "1":
                         Console.Clear();
-                        Console.WriteLine("This is the Master Bedroom.");
+                        Console.WriteLine("This is the " + masterBedRm.Name);
                         Console.WriteLine("Here we have a king size bed with space for two small end tables to\neither side.");
                         Console.WriteLine("There is a door on the far side from where we went entered that leads\nto the Master Bathroom.");
                         Console.WriteLine("Currently, there are two medium sized dressers on either side of the\nroom for both partners.");
@@ -123,7 +123,7 @@ namespace OpenHouse
                         break;
                     case "2":
                         Console.Clear();
-                        Console.WriteLine("This is the Living Room.");
+                        Console.WriteLine("This is the " + livingRoom.Name);
                         Console.WriteLine("Here we have a large floor space with hardwood floors that were done as a recent remodel.");
                         Console.WriteLine("There is a marble exterior fireplace that you can use to help keep you warm during those cold winter nights.");
                         Console.WriteLine("We can see a large gateway opening that leads to the Dining Room.");
@@ -135,7 +135,7 @@ namespace OpenHouse
                         break;
                     case "3":
                         Console.Clear();
-                        Console.WriteLine("This is the Kitchen.");
+                        Console.WriteLine("This is the " + kitchen.Name);
                         Console.ReadLine();
                         roomCounter++;
                         selectedRoom = true;
@@ -143,7 +143,7 @@ namespace OpenHouse
                         break;
                     case "4":
                         Console.Clear();
-                        Console.WriteLine("This is the Dining Room.");
+                        Console.WriteLine("This is the " + diningRoom.Name);
                         Console.ReadLine();
                         roomCounter++;
                         selectedRoom = true;
@@ -151,15 +151,15 @@ namespace OpenHouse
                         break;
                     case "5":
                         Console.Clear();
-                        Console.WriteLine("This is the Basement.");
+                        Console.WriteLine("This is the " + hallway.Name);
                         Console.ReadLine();
                         roomCounter++;
                         selectedRoom = true;
-                        basement.HasBeenChecked = true;
+                        hallway.HasBeenChecked = true;
                         break;
                     case "6":
                         Console.Clear();
-                        Console.WriteLine("This is the Upstairs Bedrooms.");
+                        Console.WriteLine("This is the " + upstairsBedrooms.Name);
                         Console.ReadLine();
                         roomCounter++;
                         selectedRoom = true;
@@ -167,7 +167,7 @@ namespace OpenHouse
                         break;
                     case "7":
                         Console.Clear();
-                        Console.WriteLine("This is the Master Bathroom.");
+                        Console.WriteLine("This is the " + masterBthRm.Name);
                         Console.ReadLine();
                         roomCounter++;
                         selectedRoom = true;
@@ -175,7 +175,7 @@ namespace OpenHouse
                         break;
                     case "8":
                         Console.Clear();
-                        Console.WriteLine("This is the Hallway Guest Bathroom.");
+                        Console.WriteLine("This is the " + hallwayGstBthRm.Name);
                         Console.ReadLine();
                         roomCounter++;
                         selectedRoom = true;
@@ -183,7 +183,7 @@ namespace OpenHouse
                         break;
                     case "9":
                         Console.Clear();
-                        Console.WriteLine("This is the Upstairs Bathroom.");
+                        Console.WriteLine("This is the " + upstairsBthRm.Name);
                         Console.ReadLine();
                         roomCounter++;
                         selectedRoom = true;
@@ -197,6 +197,43 @@ namespace OpenHouse
                     break;
                 }
             }
+            Console.Clear();
+            //Start of new Adventure
+
+            Console.WriteLine("Narrator: As the Open House winds down you wander around as your spouse talks to the realtor.");
+            Console.WriteLine("You remember seeing an unmentioned storm shelter doors outside in the backyard.");
+            Console.WriteLine("You venture out into the backyard and investigate the storm shelter.");
+            Console.WriteLine("When you get to the bottom you see variouis cardboard makings of castles and Medieval looking villages.");
+            Console.WriteLine("Tons of nerdy looking posters litter the walls with a peculiar looking door at the opposite end from where you climbed down.");
+            Console.WriteLine("As you make your way to the door you notice that just to the right is a crudely painted Santa Claus made to look like an old wizard.");
+            Console.WriteLine("There is one poster somewhat falling off the wall behind Wizard Claus that reads \"It's dangerous to go alone. Take this.\"");
+            Console.WriteLine("At the feet of Wizard Claus are two chests labeled \"Melee\" and \"Magic\".");
+            Console.WriteLine("Which do you choose?");
+            userResponse = Console.ReadLine();
+            if (userResponse.ToUpper() == "MELEE")
+            {
+                Console.Clear();
+                Console.WriteLine("You open the chest and find a Longsword and Shield.");
+                Console.WriteLine("The door then slides open in front of you.");
+                Console.WriteLine("You are compelled to walk in where the door closes behind you.");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Ominous Voice: \"Welcome to the Labyrinth! In order to leave, you must defeat the Minotaur at the end.");
+                Console.WriteLine("Good luck!");     
+            }
+            else if (userResponse.ToUpper() == "MAGIC")
+            {
+                Console.Clear();
+                Console.WriteLine("You open the chest and find a wooden staff that gleams with bright colors.");
+                Console.WriteLine("You feel a warm energy fill you as you seem to suddenly know what true magic is.");
+                Console.WriteLine("The door then slides open in front of you.");
+                Console.WriteLine("You are compelled to walk in where the door closes behind you.");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Ominous Voice: \"Welcome to the Labyrinth! In order to leave, you must defeat the Minotaur at the end.");
+                Console.WriteLine("Good luck!");
+            }
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("\n<LabyrinthGameStart.exe>");
             Console.ReadLine();
         }
     }
