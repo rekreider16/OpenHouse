@@ -6,6 +6,7 @@ namespace OpenHouse
 {
     class Program
     {
+
         public static List<Room> TheHouse = new List<Room>();
 
         static void SpeakingDelay()
@@ -31,6 +32,8 @@ namespace OpenHouse
         }
         static void Main(string[] args)
         {
+
+
             Room masterBedRm = new Room() { Name = "Master Bedroom", HasBeenChecked = false };
             TheHouse.Add(masterBedRm);
             //masterBedRm.HasBeenChecked = true; <= this sets the room to be checked.
@@ -94,10 +97,10 @@ namespace OpenHouse
             Console.WriteLine("My name is Angela and I am the realtor for this house.\nWhich room would you like to visit first?");
 
 
-            bool selectedRoom = false;
-            foreach (Room room in TheHouse)
+            bool selectedRoom = true;
+            while (selectedRoom == true)//foreach loop only gave number of choices = TheHouse list so it ran counter to your decision to let user revisit rooms. While loop with bool breaks out of switch on default case only.
             {
-                int roomCounter = 0; //remove this placeholder when a better understanding of how to get this to work is found
+                bool roomCounter = false;//changed to bool. Same functionality. I'm not sure why a bool over an int counter. Let's just say it's optimization
                 SpeakingDelay();
                 if (selectedRoom == true)
                 {
@@ -110,6 +113,8 @@ namespace OpenHouse
                 switch (userResponse)
                 {
                     case "1":
+                        //added background color change so white text becomes visible
+                        Console.BackgroundColor = ConsoleColor.Black;
                         Console.Clear();
                         Console.WriteLine("This is the " + masterBedRm.Name);
                         Console.WriteLine("Here we have a king size bed with space for two small end tables to\neither side.");
@@ -117,11 +122,11 @@ namespace OpenHouse
                         Console.WriteLine("Currently, there are two medium sized dressers on either side of the\nroom for both partners.");
                         Console.WriteLine("There is a cable outlet to allow for a TV to be plugged and sit atop\na fixture or be mounted onto the wall.");
                         Console.ReadLine();
-                        selectedRoom = true;
-                        roomCounter++;
+                        roomCounter = true;
                         masterBedRm.HasBeenChecked = true;
                         break;
                     case "2":
+                        Console.BackgroundColor = ConsoleColor.Black;
                         Console.Clear();
                         Console.WriteLine("This is the " + livingRoom.Name);
                         Console.WriteLine("Here we have a large floor space with hardwood floors that were done as a recent remodel.");
@@ -129,70 +134,62 @@ namespace OpenHouse
                         Console.WriteLine("We can see a large gateway opening that leads to the Dining Room.");
                         Console.WriteLine("The three windows face the front of the house and can allow for some decent natural lighting should you choose to use it.");
                         Console.ReadLine();
-                        roomCounter++;
-                        selectedRoom = true;
+                        roomCounter = true;
                         livingRoom.HasBeenChecked = true;
                         break;
                     case "3":
                         Console.Clear();
                         Console.WriteLine("This is the " + kitchen.Name);
                         Console.ReadLine();
-                        roomCounter++;
-                        selectedRoom = true;
+                        roomCounter = true;
                         kitchen.HasBeenChecked = true;
                         break;
                     case "4":
                         Console.Clear();
                         Console.WriteLine("This is the " + diningRoom.Name);
                         Console.ReadLine();
-                        roomCounter++;
-                        selectedRoom = true;
+                        roomCounter = true;
                         diningRoom.HasBeenChecked = true;
                         break;
                     case "5":
                         Console.Clear();
                         Console.WriteLine("This is the " + hallway.Name);
                         Console.ReadLine();
-                        roomCounter++;
-                        selectedRoom = true;
+                        roomCounter = true;
                         hallway.HasBeenChecked = true;
                         break;
                     case "6":
                         Console.Clear();
                         Console.WriteLine("This is the " + upstairsBedrooms.Name);
                         Console.ReadLine();
-                        roomCounter++;
-                        selectedRoom = true;
+                        roomCounter = true;
                         upstairsBedrooms.HasBeenChecked = true;
                         break;
                     case "7":
                         Console.Clear();
                         Console.WriteLine("This is the " + masterBthRm.Name);
                         Console.ReadLine();
-                        roomCounter++;
-                        selectedRoom = true;
+                        roomCounter = true;
                         masterBthRm.HasBeenChecked = true;
                         break;
                     case "8":
                         Console.Clear();
                         Console.WriteLine("This is the " + hallwayGstBthRm.Name);
                         Console.ReadLine();
-                        roomCounter++;
-                        selectedRoom = true;
+                        roomCounter = true;
                         hallwayGstBthRm.HasBeenChecked = true;
                         break;
                     case "9":
                         Console.Clear();
                         Console.WriteLine("This is the " + upstairsBthRm.Name);
                         Console.ReadLine();
-                        roomCounter++;
-                        selectedRoom = true;
+                        roomCounter = true;
                         upstairsBthRm.HasBeenChecked = true;
                         break;
-                    default:
+                    default: selectedRoom = false;
                         break;
                 }
-                if (roomCounter == 0)
+                if (roomCounter == false)
                 {
                     break;
                 }
